@@ -13,12 +13,10 @@ let a = 1
 
 //console.log(typeof p) -> object
 
-let p = new Promise(function(cumprirPromessa){
-    cumprirPromessa(['Ana','Bia','Carlos','Vander'])
+let p = new Promise(function(resolve){
+    resolve(['Ana','Bia','Carlos','Vander'])
     
 })
-
-
 //quando a promessa for cumprida .then
 //
     //.then(valor => valor[0])//pega o primeiro item do array
@@ -27,8 +25,10 @@ let p = new Promise(function(cumprirPromessa){
     //.then(letra => letra.toLowerCase())//transforma o primeiro elemento em minuscula
     //.then(minuscula => console.log(minuscula))
 //
-let primeiroDoArray = (array)=>{
-    return array[0]
-}
+let primeiroDoArray = array=> array[0]
+let minuscula = string=> string.toLowerCase()
 p
-    .then(valor => valor[0])
+    .then(primeiroDoArray)
+    .then(primeiroDoArray)
+    .then(minuscula)
+    .then(minuscula => console.log(minuscula))
